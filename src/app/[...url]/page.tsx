@@ -17,9 +17,17 @@ function reconstructURL({url}: {url:string[]}) {
 }
 
 const Page = async ({params}: PageProps) => {
+    const { url } = await params
     const sessionCookie = (await cookies()).get("sessionId")?.value
-    
-    const newUrl = reconstructURL({url: params.url as string[]})
+    // console.log(params)
+    // console.log(params.url)
+    // const newUrl = reconstructURL({url: params.url as string[]})
+    let newUrl = ''
+    if (Array.isArray(url)) {
+        newUrl = reconstructURL({ url })
+    } else if (typeof url === 'string') {
+        newUrl = decodeURIComponent(url)
+    }
 
     const sessionId = (newUrl + "--" + sessionCookie).replace(/\//g, "");
 
