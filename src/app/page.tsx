@@ -1,101 +1,131 @@
-import Image from "next/image";
+import { GlareCard } from '@/components/Safari'
+import { TypingAnimation } from '@/components/Type'
+import Head from 'next/head'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="bg-gray-50 min-h-screen flex flex-col justify-center items-center text-gray-900">
+      <Head>
+        <title>Ragdoll - Chat with Any Website</title>
+        <meta name="description" content="Easily chat and get information from any website using Ragdoll!" />
+      </Head>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+      {/* Hero Section */}
+      <header className="bg-gradient-to-r from-zinc-500 to-zinc-600 w-full py-24 px-4 text-center text-white">
+        <h1 className="text-4xl font-bold mb-4">Welcome to Ragdoll</h1>
+        <p className="text-lg mb-6">
+          The easiest way to chat with any website and get the information you need instantly. 
+          Just paste a URL, ask a question, and let the magic happen.
+        </p>
+        <div className="space-x-4">
+          <a href="#about" className="inline-block bg-white text-zinc-600 px-6 py-3 rounded-md text-lg font-semibold hover:bg-gray-100 transition">
+            Learn More
           </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+          <a href="#how-it-works" className="inline-block bg-transparent border-2 border-white text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-white hover:text-zinc-600 transition">
+            How it Works
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* About Section */}
+      <section id="about" className="py-16 pt-20 px-4 text-center max-w-5xl mx-auto">
+        <h2 className="text-3xl font-semibold text-zinc-600 mb-6">What is Ragdoll?</h2>
+        <p className="text-lg text-gray-700 leading-relaxed mb-6">
+          Ragdoll allows you to easily interact with any website’s content. Simply input the URL of a website, 
+          and start chatting with it like you would in a messaging app. Ask questions, get instant answers, and 
+          explore the vast amount of information available on the internet in a conversational way.
+        </p>
+        <TypingAnimation
+          className="text-4xl font-bold text-black dark:text-white"
+          text="http://localhost:3000/{your-website-url}"
+        />
+      </section>
+
+      {/* How it Works Section */}
+      <section id="how-it-works" className="pt-4 pb-16 px-4 text-center">
+        <h2 className="text-3xl font-semibold text-zinc-600 mb-6">How It Works</h2>
+        <div className="mt-10 flex flex-wrap justify-center gap-12">
+          <div className="w-full sm:w-1/2 md:w-1/3">
+            <GlareCard className="flex flex-col items-center justify-center">
+              <svg
+                width="66"
+                height="65"
+                viewBox="0 0 66 65"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-7 w-7 text-white"
+              >
+                <path
+                  d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
+                  stroke="currentColor"
+                  strokeWidth="15"
+                  strokeMiterlimit="3.86874"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <p className="text-white font-bold text-xl mt-4">Step 1: Paste the URL</p>
+              <p className="text-white">Copy and paste the link of any website you want to chat with.</p>
+            </GlareCard>
+          </div>
+          <div className="w-full sm:w-1/2 md:w-1/3">
+            <GlareCard className="flex flex-col items-center justify-center">
+              <svg
+                width="66"
+                height="65"
+                viewBox="0 0 66 65"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-7 w-7 text-white"
+              >
+                <path
+                  d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
+                  stroke="currentColor"
+                  strokeWidth="15"
+                  strokeMiterlimit="3.86874"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <p className="text-white font-bold text-xl mt-4">Step 2: Ask Anything</p>
+              <p className="text-white">Type your question in the chatbox, and get a response based on the website’s content.</p>
+            </GlareCard>
+          </div>
+          <div className="w-full sm:w-1/2 md:w-1/3">
+            <GlareCard className="flex flex-col items-center justify-center">
+              <svg
+                width="66"
+                height="65"
+                viewBox="0 0 66 65"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-7 w-7 text-white"
+              >
+                <path
+                  d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
+                  stroke="currentColor"
+                  strokeWidth="15"
+                  strokeMiterlimit="3.86874"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <p className="text-white font-bold text-xl mt-4">Step 3: Get Instant Answers</p>
+              <p className="text-white">Ragdoll analyzes the content and gives you direct, relevant responses in real-time.</p>
+            </GlareCard>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="pt-16 pb-10 px-4 text-center">
+        <h2 className="text-3xl font-semibold text-zinc-600 mb-6">Ready to Chat with Any Website?</h2>
+        <p className="text-lg text-gray-700 mb-8">
+          It’s that easy! Discover information quickly, ask anything, and interact with the web like never before.
+        </p>
+      </section>
+
+      {/* Footer */}
+      <footer className=" text-center text-black py-6">
+        <p>&copy; 2024 Ragdoll. All Rights Reserved.</p>
       </footer>
     </div>
-  );
+  )
 }
