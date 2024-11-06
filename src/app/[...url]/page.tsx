@@ -5,19 +5,19 @@ import { cookies } from 'next/headers'
 // import { url } from 'inspector'
 import React from 'react'
 
-interface PageProps {
-    params: {
-        url: string | string[] | undefined
-    }
-}
+// interface PageProps {
+//     params: {
+//         url: string |string[] | undefined
+//     }
+// }
 
 function reconstructURL({url}: {url:string[]}) {
     const decodedComponent = url.map(u => decodeURIComponent(u))
     return decodedComponent.join("/")
 }
 
-const Page = async ({params}: PageProps) => {
-    const { url } = await params
+const Page = async ({params}: {params: Promise<{url: string |string[] | undefined}>}) => {
+    const url = (await params).url
     const sessionCookie = (await cookies()).get("sessionId")?.value
     // console.log(params)
     // console.log(params.url)
